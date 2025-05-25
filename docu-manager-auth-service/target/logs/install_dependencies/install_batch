@@ -1,0 +1,38 @@
+Collecting python-jose
+  Using cached python_jose-3.4.0-py2.py3-none-any.whl.metadata (5.5 kB)
+Collecting passlib[bcrypt]
+  Using cached passlib-1.7.4-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting bcrypt>=3.1.0 (from passlib[bcrypt])
+  Using cached bcrypt-4.3.0-cp39-abi3-win_amd64.whl.metadata (10 kB)
+Collecting ecdsa!=0.15 (from python-jose)
+  Using cached ecdsa-0.19.1-py2.py3-none-any.whl.metadata (29 kB)
+Collecting rsa!=4.1.1,!=4.4,<5.0,>=4.0 (from python-jose)
+  Using cached rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting pyasn1<0.5.0,>=0.4.1 (from python-jose)
+  Using cached pyasn1-0.4.8-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting six>=1.9.0 (from ecdsa!=0.15->python-jose)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Using cached python_jose-3.4.0-py2.py3-none-any.whl (34 kB)
+Using cached bcrypt-4.3.0-cp39-abi3-win_amd64.whl (152 kB)
+Using cached ecdsa-0.19.1-py2.py3-none-any.whl (150 kB)
+Using cached pyasn1-0.4.8-py2.py3-none-any.whl (77 kB)
+Using cached rsa-4.9.1-py3-none-any.whl (34 kB)
+Using cached passlib-1.7.4-py2.py3-none-any.whl (525 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: pyasn1, passlib, six, rsa, bcrypt, ecdsa, python-jose
+Successfully installed bcrypt-4.3.0 ecdsa-0.19.1 passlib-1.7.4 pyasn1-0.4.8 python-jose-3.4.0 rsa-4.9.1 six-1.17.0
+
+[notice] A new release of pip is available: 24.3.1 -> 25.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+Collecting bcrypt==4.0.1
+  Using cached bcrypt-4.0.1-cp36-abi3-win_amd64.whl.metadata (9.0 kB)
+Using cached bcrypt-4.0.1-cp36-abi3-win_amd64.whl (152 kB)
+Installing collected packages: bcrypt
+  Attempting uninstall: bcrypt
+    Found existing installation: bcrypt 4.3.0
+    Uninstalling bcrypt-4.3.0:
+      Successfully uninstalled bcrypt-4.3.0
+Successfully installed bcrypt-4.0.1
+
+[notice] A new release of pip is available: 24.3.1 -> 25.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip

@@ -1,0 +1,94 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: rag_postgres
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: auth_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - ragnet
+
+  qdrant:
+    image: qdrant/qdrant
+    container_name: rag_qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrantdata:/qdrant/storage
+    networks:
+      - ragnet
+
+  ollama:
+    image: ollama/ollama
+    container_name: rag_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    networks:
+      - ragnet
+
+  docu-manager-auth:
+    build:
+      context: ./docu-manager-auth
+      dockerfile: Dockerfile
+    container_name: docu_auth
+    ports:
+      - "8001:8001"
+    environment:
+      DATABASE_URL: postgresql://myuser:mysecretpassword@localhost:5432/auth_db
+      JWT_SECRET: myjwtsecret
+    depends_on:
+      - postgres
+    networks:
+      - ragnet
+
+  docu-manager-rag:
+    build:
+      context: ./docu-manager-rag
+      dockerfile: Dockerfile
+    container_name: docu_rag
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://myuser:mysecretpassword@localhost:5432/auth_db
+      JWT_SECRET: supersecretkey123
+      QDRANT_HOST: qdrant
+      OLLAMA_HOST: ollama
+    depends_on:
+      - postgres
+      - qdrant
+      - ollama
+    networks:
+      - ragnet
+
+  docu-manager-fe:
+    build:
+      context: ./docu-manager-fe
+      dockerfile: Dockerfile
+    container_name: docu_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - docu-manager-auth
+      - docu-manager-rag
+    networks:
+      - ragnet
+
+volumes:
+  pgdata:  D:\AgenticAI\pocs\jktech\docker_data\postgres
+  qdrantdata: D:\AgenticAI\pocs\jktech\docker_data\qdrant
+  ollama_data: D:\AgenticAI\pocs\jktech\docker_data\ollama
+
+networks:
+  ragnet:
+    driver: bridge
