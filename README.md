@@ -1,29 +1,29 @@
-# 📚 DocuManager: RAG-Based Document QA System
+# DocuManager: RAG-Based Document QA System
 
 A full-stack production-ready system for **Document Uploading**, **Ingestion**, and **RAG-based Q&A**, using:
 
-- 🧠 **RAG Engine** (`docu-manager-rag`) – Embedding, vector storage, and document retrieval
-- 🔐 **Authentication Service** (`docu-manager-auth`) – User signup/login with JWT auth
-- 🌐 **Frontend** (`docu-manager-fe`) – React UI for document management and Q&A
-- 🗃️ PostgreSQL, Qdrant, Ollama for persistent, vectorized, and LLM-based responses
+- **RAG Engine** (`docu-manager-rag`) – Embedding, vector storage, and document retrieval
+- **Authentication Service** (`docu-manager-auth`) – User signup/login with JWT auth
+- **Frontend** (`docu-manager-fe`) – React UI for document management and Q&A
+- PostgreSQL, Qdrant, Ollama for persistent, vectorized, and LLM-based responses
 
 ---
 
-## 🚀 Repositories Overview
+## Repositories Overview
 
-### 🧠 `docu-manager-rag` (RAG Service)
+### `docu-manager-rag` (RAG Service)
 
 - FastAPI app built with PyBuilder
 - Ingests documents, generates embeddings, stores them in Qdrant
 - Exposes `/qa` endpoint to answer user questions based on selected documents
 
-### 🔐 `docu-manager-auth` (Auth Service)
+### `docu-manager-auth` (Auth Service)
 
 - FastAPI app with PyBuilder
 - Handles user registration, login, JWT generation
 - Stores users in PostgreSQL
 
-### 🌐 `docu-manager-fe` (Frontend)
+###  `docu-manager-fe` (Frontend)
 
 - React + MUI interface
 - Supports file upload, ingestion, document selection, Q&A
@@ -32,11 +32,11 @@ A full-stack production-ready system for **Document Uploading**, **Ingestion**, 
 
 ---
 
-## 📦 Services & APIs
+## Services & APIs
 
 ---
 
-### 🔐 `docu-manager-auth` API
+### `docu-manager-auth` API
 
 **Base URL**: `http://localhost:8001`
 
@@ -75,7 +75,7 @@ Response:
 }
 ```
 
-### 🧠 docu-manager-rag API
+### docu-manager-rag API
 
 **Base URL**: `http://localhost:8000`
 
@@ -185,7 +185,7 @@ Response:
 ```
 
 
-#### 🧠 Tech Stack
+#### Tech Stack
 
 * Backend: FastAPI, PyBuilder, PostgreSQL, Qdrant, Ollama
 
